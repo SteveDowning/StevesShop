@@ -5,16 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using StevesShop.Core.Models;
 using StevesShop.DataAccess.InMemory;
+using StevesShop.Core.Contracts;
 
 namespace StevesShop.WebUI.Controllers
 {
     public class ProductCategoryManagerController : Controller
     {
-        InMemoryRepository<ProductCategory> context;
+        IRepository<ProductCategory> context;
 
-        public ProductCategoryManagerController()
+        public ProductCategoryManagerController(IRepository<ProductCategory> context)
         {
-            context = new InMemoryRepository<ProductCategory>();
+            this.context = context;
         }
         // GET: ProductCategoryManager
         public ActionResult Index()
