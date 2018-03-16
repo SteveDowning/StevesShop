@@ -49,10 +49,6 @@
     <Compile Include="ViewModels\ProductManagerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StevesShop.DataAccess.SQL\StevesShop.DataAccess.SQL.csproj">
-      <Project>{a570b925-cf81-475c-9918-37953de508f0}</Project>
-      <Name>StevesShop.DataAccess.SQL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\StevesShop.Services\StevesShop.Services.csproj">
       <Project>{330bb1ca-463b-438b-bc45-518490a2102f}</Project>
       <Name>StevesShop.Services</Name>
