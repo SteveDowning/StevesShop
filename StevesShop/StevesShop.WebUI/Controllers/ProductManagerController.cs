@@ -7,6 +7,7 @@ using StevesShop.Core.Models;
 using StevesShop.Core.ViewModels;
 using StevesShop.DataAccess.InMemory;
 using StevesShop.Core.Contracts;
+using System.IO;
 
 namespace StevesShop.WebUI.Controllers
 {
@@ -37,7 +38,7 @@ namespace StevesShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -45,6 +46,12 @@ namespace StevesShop.WebUI.Controllers
             }
             else
             {
+                if (file != null)
+                {
+                    product.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + product.Image);
+                }
+
                 context.Insert(product);
                 context.Commit();
 
@@ -69,7 +76,7 @@ namespace StevesShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product product, string Id)
+        public ActionResult Edit(Product product, string Id, HttpPostedFileBase file)
         {
             Product productToEdit = context.Find(Id);
 
@@ -85,11 +92,16 @@ namespace StevesShop.WebUI.Controllers
                     return View(product);
                 }
 
+                if(file != null)
+                {
+                    productToEdit.Image = product.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ProductImages//") + productToEdit.Image);
+                }
+
                 productToEdit.Name = product.Name;
                 productToEdit.Description = product.Description;
                 productToEdit.Category = product.Category;
                 productToEdit.Price = product.Price;
-                productToEdit.Image = product.Image;
 
                 context.Commit();
 
