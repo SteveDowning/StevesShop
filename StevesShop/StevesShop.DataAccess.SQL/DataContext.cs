@@ -12,7 +12,7 @@ namespace StevesShop.DataAccess.SQL
     public class DataContext : DbContext
     {
         public DataContext()
-            :base("DefaultConnection")
+            :base(" DefaultConnection")
         {
 
         }
