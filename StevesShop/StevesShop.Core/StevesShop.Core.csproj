@@ -60,12 +60,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-=======
->>>>>>> BasketService
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
