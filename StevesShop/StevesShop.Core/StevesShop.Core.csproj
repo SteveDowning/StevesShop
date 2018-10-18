@@ -58,14 +58,14 @@
     <Compile Include="ViewModels\ProductManagerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StevesShop.Services\StevesShop.Services.csproj">
-      <Project>{330bb1ca-463b-438b-bc45-518490a2102f}</Project>
-      <Name>StevesShop.Services</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+=======
+>>>>>>> BasketService
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
