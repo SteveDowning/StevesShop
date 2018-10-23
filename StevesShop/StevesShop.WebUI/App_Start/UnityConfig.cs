@@ -3,6 +3,7 @@ using StevesShop.Core.Contracts;
 using StevesShop.Core.Models;
 using StevesShop.DataAccess.InMemory;
 using StevesShop.DataAccess.SQL;
+using StevesShop.Services;
 using Unity;
 
 namespace StevesShop.WebUI
@@ -47,6 +48,9 @@ namespace StevesShop.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
         }
     }
 }
